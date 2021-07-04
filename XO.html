@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div onclick="step()">
+        <button id="r1c1"></button><button id="r1c2"></button><button id="r1c3"></button><br>
+        <button id="r2c1"></button><button id="r2c2"></button><button id="r2c3"></button><br>
+        <button id="r3c1"></button><button id="r3c2"></button><button id="r3c3"></button><br>
+    </div>
+    <h1><p id="pwin"></p></h1>
+    <script>
+        let Xturn = false
+        function step() {
+            if (!event.target.innerText) {
+                Xturn = !Xturn
+                event.target.innerText = Xturn ? 'X' : 'O';
+            }
+            checkWin('X')
+            checkWin('O')
+        }
+
+        function checkWin(p) {
+            // rows
+            r1c1.innerText == p && r1c2.innerText == p && r1c3.innerText == p && (pwin.innerText=`${p} WIN`)
+            r2c1.innerText == p && r2c2.innerText == p && r2c3.innerText == p && (pwin.innerText=`${p} WIN`)
+            r3c1.innerText == p && r3c2.innerText == p && r3c3.innerText == p && (pwin.innerText=`${p} WIN`)
+            // // cols
+            r1c1.innerText == p && r2c1.innerText == p && r3c1.innerText == p && (pwin.innerText=`${p} WIN`)
+            r1c2.innerText == p && r2c2.innerText == p && r3c2.innerText == p && (pwin.innerText=`${p} WIN`)
+            r1c3.innerText == p && r2c3.innerText == p && r3c3.innerText == p && (pwin.innerText=`${p} WIN`)
+            // // diagonals
+            r1c1.innerText == p && r2c2.innerText == p && r3c3.innerText == p && (pwin.innerText=`${p} WIN`)
+            r1c3.innerText == p && r2c2.innerText == p && r3c1.innerText == p && (pwin.innerText=`${p} WIN`)
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+    
+    <button id="b1" style="position: absolute;left: 1px;">oooo</button>
+    <button id="b2" style="position: absolute;left: 200px;">oooo</button>
+    <button id="b3" style="position: absolute;left: 300px;">oooo</button>
+<script>
+    function move(){
+        moveButton(b1) 
+        moveButton(b2) 
+        moveButton(b3) 
+    }
+    function moveButton(b)
+    {
+        let delta= Math.floor( Math.random() *12 )-5
+        b.style.left =(Number( b.style.left.replace('px','')) + delta) +'px'
+        b.style.top =(Number( b.style.top.replace('px','')) + delta *2) +'px'
+        // console.log( b.style.left.replace('px',''))
+        // console.log(b.style.left)
+        // b1Left+=delta
+    }
+    setInterval(move,300)
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="display" onclick="allButtonsEvent()"></div>
+    <script>
+        for (let index = 0; index < 100; index++) {
+            display.innerHTML += `<button> - </button>`
+        }
+
+        function allButtonsEvent() {
+            var d = new Date();
+            // console.log(d.getSeconds())
+            // console.log(event.target)
+            event.target.innerText =d.getSeconds()
+        }
+    </script>
+</body>
+
+</html>

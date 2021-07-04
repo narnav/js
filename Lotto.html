@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <script>
+        // Random
+        // array of 7 numbers
+        // !duplicate
+        // range (1 -37)
+        let ar = []
+        function lotto() {
+            for (let index = 0; index < 7; index++) {
+                let tempNum = Math.floor(Math.random() * 10 + 1)
+                if (!ar.includes(tempNum))
+                    ar.push(tempNum)
+                else
+                    index--
+            }
+            console.log(ar)
+        }
+
+        lotto()
+    </script>
+</body>
+
+</html>
