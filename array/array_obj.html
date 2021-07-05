@@ -1,0 +1,73 @@
+<html lang="en">
+
+<body>
+    <button onclick="add(userName.value,tel.value,email.value)">Add</button>
+    <button onclick="remove(userName.value);console.log(students)">Delete</button>
+    <button onclick="myFind(userName.value)">Find by name</button><br>
+
+    <label for="userName"> Name</label>
+    <input id='userName' placeholder="your Name">
+    <br>
+    <label for="tel"> tel</label>
+    <input id='tel' placeholder="tel"><br>
+
+
+    <label for="email"> email</label>
+    <input id='email' placeholder="email">
+
+    <div id="display"></div>
+    <script>
+        const students = []
+        console.log(students)
+
+        //push item tostudentsray
+        function add(userName,tel,email) {
+            students.push({name:userName,tel:tel,email:email}) //add new item tostudentsray
+            console.log(students)
+            updDisplay(`<span style='color:blue'> Add</span>`)
+        }
+
+
+        function updDisplay(msg =""){
+            display.innerHTML = `<h1>Total ${students.length}<br> Last Action:${msg}</h1>`
+        }
+        //initial test - fill the array with demo data
+        add('bin',123,'em@ail.com')
+        add('yossy',444,'my@email.com')
+        add('michel',765,'michel@coffe.com')
+        //splice item fromstudentsray
+
+        function remove(itemToRemove) {
+            let position = myFind(itemToRemove)
+            if (position > -1) {
+                students.splice(position, 1)
+            }
+            updDisplay(`<span style='color:red'> remove</span>`)
+            console.log(students)
+        }
+        // search item..
+        function myFind(searchItem) {
+            for (let index = 0; index < students.length; index++) {
+                if(students[index].name == searchItem)
+                {
+                    console.log(students[index])
+                    return index //return when find
+                }
+            }
+            return -1 //return when not found
+        }
+
+        // // print allstudentsray
+        function printMyAr() {
+            console.log(students)
+        }
+
+        // // printstudentsray length
+        // console.log(ar.length)
+    </script>
+
+
+
+</body>
+
+</html>
