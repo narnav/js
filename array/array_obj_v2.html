@@ -1,0 +1,82 @@
+<html lang="en">
+
+<body>
+    <button onclick="add(userName.value,tel.value,email.value)">Add</button>
+    <button onclick="remove(userName.value);console.log(students)">Delete</button>
+    <button onclick="myFind(userName.value)">Find by name</button><br>
+
+    <label for="userName"> Name</label>
+    <input id='userName' placeholder="your Name">
+    <br>
+    <label for="tel"> tel</label>
+    <input id='tel' placeholder="tel"><br>
+
+
+    <label for="email"> email</label>
+    <input id='email' placeholder="email">
+    <br>
+    <br>
+    <button onclick="currentPosition=0;updDisplay('first')">&lt;&lt;
+    </button><button onclick="move(-1)">&lt;
+    </button><button onclick="move(1)">></button><button onclick="move(students.length-1)">>></button>
+    <div id="display"></div>
+    <script>
+        const students = []
+        let currentPosition = 0
+        console.log(students)
+
+        function move(newPosition) {
+            currentPosition += newPosition
+            if (currentPosition > students.length - 1)
+                currentPosition = students.length - 1
+            console.log(currentPosition)
+            updDisplay(msg = "move...")
+        }
+
+        function updDisplay(msg = "") {
+            userName.value = students[currentPosition].name
+            tel.value = students[currentPosition].tel
+            email.value = students[currentPosition].email
+            display.innerHTML = `<h1><span style='color:green'>${currentPosition + 1}</span> from   Total ${students.length}<br> Last Action:${msg}</h1>`
+        }
+
+        //push item tostudentsray
+        function add(userName, tel, email) {
+            students.push({ name: userName, tel: tel, email: email }) //add new item tostudentsray
+            console.log(students)
+            updDisplay(`<span style='color:blue'> Add</span>`)
+        }
+
+        //initial test - fill the array with demo data
+        function test() {
+            add('bin', 123, 'em@ail.com')
+            add('yossy', 444, 'my@email.com')
+            add('michel', 765, 'michel@coffe.com')
+        }
+        test()
+
+        function remove(itemToRemove) {
+            let position = myFind(itemToRemove)
+            if (position > -1) {
+                students.splice(position, 1)
+            }
+            updDisplay(`<span style='color:red'> remove</span>`)
+            console.log(students)
+        }
+        
+        // search item..
+        function myFind(searchItem) {
+            for (let index = 0; index < students.length; index++) {
+                if (students[index].name == searchItem) {
+                    console.log(students[index])
+                    currentPosition = index
+                    updDisplay(msg = "find")
+                    return index //return when find
+                }
+            }
+            return -1 //return when not found
+        }
+    </script>
+</body>
+
+</html>

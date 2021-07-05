@@ -1,0 +1,44 @@
+<html lang="en">
+
+<body>
+    <button onclick="add(userData.value);console.log(ar)">Add</button>
+    <button onclick="remove(userData.value);console.log(ar)">Delete</button>
+    <button onclick="myFind(userData.value)">myFind</button><br>
+    <label for="userData">Enter data</label>
+    <input id='userData' placeholder="data">
+    <script>
+        const ar = ['bbb', 'cc']
+
+        //push item to array
+        function add(newItem) {
+            ar.push(newItem) //add new item to array
+        }
+        //splice item from array
+
+        function remove(itemToRemove) {
+            let position = ar.indexOf(itemToRemove)
+            if (position > -1) {
+                ar.splice(position, 1)
+            }
+            console.log(ar)
+        }
+        // search item..
+        function myFind(searchItem) {
+            let position = ar.indexOf(searchItem)
+            position > -1 ? console.log(`found at ${position}`) : console.log(`not found`)
+        }
+
+        // // print all array
+        function printMyAr() {
+            console.log(ar)
+        }
+
+        // // print array length
+        // console.log(ar.length)
+    </script>
+
+
+
+</body>
+
+</html>
