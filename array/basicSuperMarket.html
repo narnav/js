@@ -1,0 +1,34 @@
+<html lang="en">
+
+<body>
+    <div id="superGUI" ></div>
+    <script>
+
+        const superMarketProducts = [
+         { id: 1, name: 'coffee', price: 1 },
+         { id: 2, name: 'tea', price: 4 },
+         { id: 3, name: 'milk', price: 31 }]
+
+         function buildSuperGUI(){
+            for (let index = 0; index < superMarketProducts.length; index++) {
+                superGUI.innerHTML += `<div style="background-color: aqua;;margin: 10px">
+                    <button onclick='addToCart(superMarketProducts[${index}])'>הוספה לעגלה  ${superMarketProducts[index].id}</button><br>
+                name: ${superMarketProducts[index].name}<br>
+                price: ${superMarketProducts[index].price}<br><br><br><br>
+                </div>
+                `
+            }
+         }
+         const myCart=[]
+         function addToCart(product)
+         {
+            myCart.push(product)
+            console.log(myCart)
+         }
+        buildSuperGUI()
+    </script>
+
+
+</body>
+
+</html>
